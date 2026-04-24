@@ -76,7 +76,11 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-header title="Log in to your account" description="Enter your email and password below to log in" />
 
     <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
+
+    <x-auth-session-status
+        class="text-center"
+        :status="session('status') ?? session('error')"
+        :type="session('error') ? 'error' : 'success'" />
 
     <form wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
@@ -107,6 +111,25 @@ new #[Layout('components.layouts.auth')] class extends Component {
             <flux:button variant="primary" type="submit" class="w-full">{{ __('Log in') }}</flux:button>
         </div>
     </form>
+
+
+    <p class="text-sm text-center text-zinc-500">
+        Or sign up with
+    </p>
+
+    <div class="flex flex-col gap-3">
+        <a href="{{ url('/auth/google') }}">
+            <flux:button variant="outline" class="w-full">
+                Continue with Google
+            </flux:button>
+        </a>
+
+        <a href="{{ url('/auth/facebook') }}">
+            <flux:button variant="outline" class="w-full">
+                Continue with Facebook
+            </flux:button>
+        </a>
+    </div>
 
     <div class="space-x-1 text-center text-sm text-zinc-600 dark:text-zinc-400">
         Don't have an account?
