@@ -26,7 +26,7 @@ class SocialController extends Controller
                 ->with('error', 'Email is required from ' . ucfirst($provider));
         }
 
-        // 1. Check if social account already exists
+        // 1. Find or create social account
         $account = SocialAccount::where('provider', $provider)
             ->where('provider_id', $socialUser->getId())
             ->first();
@@ -35,32 +35,32 @@ class SocialController extends Controller
             $user = $account->user;
         } else {
 
-            // 2. Try find user by email
-            $user = User::where('email', $socialUser->getEmail())->first();
-
-            // 3. Create user if not exists
-            if (!$user) {
-                $user = User::create([
+            // 2. Find or create user
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                [
                     'name' => $socialUser->getName() ?? $socialUser->getNickname(),
-                    'email' => $socialUser->getEmail(),
                     'password' => bcrypt(Str::random(32)),
-                ]);
-            }
+                ]
+            );
 
-            // 4. Attach social account
-            $user->socialAccounts()->create([
+            // 3. Create social account
+            $account = $user->socialAccounts()->create([
                 'provider' => $provider,
                 'provider_id' => $socialUser->getId(),
                 'avatar' => $socialUser->getAvatar(),
-                'is_active' => true,
-
             ]);
-
-            // ensure only current provider is active
-            $user->socialAccounts()
-                ->where('provider', '!=', $provider)
-                ->update(['is_active' => false]);
         }
+
+        // 4. ALWAYS activate current provider
+        $user->socialAccounts()
+            ->where('provider', $provider)
+            ->update(['is_active' => true]);
+
+        // 5. OPTIONAL: deactivate others
+        $user->socialAccounts()
+            ->where('provider', '!=', $provider)
+            ->update(['is_active' => false]);
 
         Auth::login($user);
 

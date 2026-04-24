@@ -114,18 +114,20 @@ new #[Layout('components.layouts.auth')] class extends Component {
 
 
     <p class="text-sm text-center text-zinc-500">
-        Or sign up with
+        Continue with
     </p>
 
     <div class="flex flex-col gap-3">
         <a href="{{ url('/auth/google') }}">
             <flux:button variant="outline" class="w-full">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" />
                 Continue with Google
             </flux:button>
         </a>
 
         <a href="{{ url('/auth/facebook') }}">
             <flux:button variant="outline" class="w-full">
+                <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-5 h-5 bg-white" />
                 Continue with Facebook
             </flux:button>
         </a>
