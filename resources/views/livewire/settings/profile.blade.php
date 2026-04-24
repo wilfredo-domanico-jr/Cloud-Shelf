@@ -4,9 +4,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new #[Layout('components.layouts.app')] class extends Component {
     public string $name = '';
     public string $email = '';
 
@@ -15,6 +16,8 @@ new class extends Component {
      */
     public function mount(): void
     {
+
+
         $this->name = Auth::user()->name;
         $this->email = Auth::user()->email;
     }
@@ -80,24 +83,23 @@ new class extends Component {
                 <flux:input wire:model="email" label="{{ __('Email') }}" type="email" name="email" required autocomplete="email" />
 
                 @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail &&! auth()->user()->hasVerifiedEmail())
-                    <div>
-                        <p class="mt-2 text-sm text-gray-800">
-                            {{ __('Your email address is unverified.') }}
+                <div>
+                    <p class="mt-2 text-sm text-gray-800">
+                        {{ __('Your email address is unverified.') }}
 
-                            <button
-                                wire:click.prevent="resendVerificationNotification"
-                                class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                                {{ __('Click here to re-send the verification email.') }}
-                            </button>
-                        </p>
+                        <button
+                            wire:click.prevent="resendVerificationNotification"
+                            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            {{ __('Click here to re-send the verification email.') }}
+                        </button>
+                    </p>
 
-                        @if (session('status') === 'verification-link-sent')
-                            <p class="mt-2 text-sm font-medium text-green-600">
-                                {{ __('A new verification link has been sent to your email address.') }}
-                            </p>
-                        @endif
-                    </div>
+                    @if (session('status') === 'verification-link-sent')
+                    <p class="mt-2 text-sm font-medium text-green-600">
+                        {{ __('A new verification link has been sent to your email address.') }}
+                    </p>
+                    @endif
+                </div>
                 @endif
             </div>
 

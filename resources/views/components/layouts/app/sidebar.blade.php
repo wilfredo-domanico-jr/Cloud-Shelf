@@ -18,11 +18,6 @@
             <x-app-logo class="size-8" href="#"></x-app-logo>
         </a>
 
-        <!-- <flux:navlist variant="outline">
-            <flux:navlist.group heading="Platform" class="grid">
-                <flux:navlist.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>Home</flux:navlist.item>
-            </flux:navlist.group>
-        </flux:navlist> -->
 
 
         <flux:navlist variant="outline">
@@ -32,7 +27,7 @@
                     My Drive
                 </flux:navlist.item>
 
-                <flux:navlist.item icon="clock" wire:navigate>
+                <flux:navlist.item icon="clock" :href="route('recent')" :current="request()->routeIs('recent')" wire:navigate>
                     Recent
                 </flux:navlist.item>
 

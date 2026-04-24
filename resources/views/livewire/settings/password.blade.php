@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new #[Layout('components.layouts.app')] class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -49,8 +50,7 @@ new class extends Component {
                 type="password"
                 name="current_password"
                 required
-                autocomplete="current-password"
-            />
+                autocomplete="current-password" />
             <flux:input
                 wire:model="password"
                 id="update_password_password"
@@ -58,8 +58,7 @@ new class extends Component {
                 type="password"
                 name="password"
                 required
-                autocomplete="new-password"
-            />
+                autocomplete="new-password" />
             <flux:input
                 wire:model="password_confirmation"
                 id="update_password_password_confirmation"
@@ -67,8 +66,7 @@ new class extends Component {
                 type="password"
                 name="password_confirmation"
                 required
-                autocomplete="new-password"
-            />
+                autocomplete="new-password" />
 
             <div class="flex items-center gap-4">
                 <div class="flex items-center justify-end">

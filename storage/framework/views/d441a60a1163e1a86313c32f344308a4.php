@@ -1,0 +1,1 @@
+<img src="<?php echo e(asset('images/app-logo.png')); ?>" alt="Logo" <?php echo e($attributes); ?> /><?php /**PATH D:\Programming_Application\xampp8.2.2\htdocs\CloudShelf\resources\views/components/app-logo-icon.blade.php ENDPATH**/ ?>
