@@ -19,6 +19,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Volt::route('recent', 'recent.index')->name('recent');
+
+    Volt::route('my-drive', 'my-drive.drive-files')->name('my-drive');
 });
 
 require __DIR__ . '/auth.php';

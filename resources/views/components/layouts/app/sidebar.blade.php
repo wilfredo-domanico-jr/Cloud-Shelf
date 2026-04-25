@@ -20,12 +20,45 @@
 
 
 
+
+        <flux:dropdown>
+
+
+            <flux:button variant="primary" class="w-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>New</flux:button>
+
+            <flux:menu>
+                <flux:modal.trigger name="create-folder">
+                    <flux:menu.item icon="folder-plus" icon:variant="outline">
+                        New Folder
+                    </flux:menu.item>
+                </flux:modal.trigger>
+                <flux:menu.separator />
+
+                <flux:menu.item icon="arrow-up-on-square" icon:variant="outline">File Upload</flux:menu.item>
+                <flux:menu.item icon="arrow-up-on-square-stack" icon:variant="outline">Folder Upload</flux:menu.item>
+            </flux:menu>
+        </flux:dropdown>
+
+
+        <!---- CREATE NEW FOLDER (START) ---->
+        <flux:modal name="create-folder" :dismissible="false" class="md:w-96">
+            <livewire:create-folder />
+        </flux:modal>
+        <!---- CREATE NEW FOLDER (END) ---->
+
         <flux:navlist variant="outline">
 
             <flux:navlist.group heading="Main" class="grid">
                 <flux:navlist.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
+                    Home
+                </flux:navlist.item>
+
+                <flux:navlist.item icon="inbox" :href="route('my-drive')" :current="request()->routeIs('my-drive')" wire:navigate>
                     My Drive
                 </flux:navlist.item>
+
 
                 <flux:navlist.item icon="clock" :href="route('recent')" :current="request()->routeIs('recent')" wire:navigate>
                     Recent
