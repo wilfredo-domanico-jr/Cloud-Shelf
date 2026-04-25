@@ -48,7 +48,7 @@ unset($__defined_vars, $__key, $__value); ?>
     <div class="h-28 <?php echo e($color); ?> flex items-center justify-center text-4xl"><?php echo e($icon); ?></div>
     <div class="p-3">
         <div class="text-sm font-semibold truncate"><?php echo e($title); ?></div>
-        <div class="text-xs text-neutral-500"><?php echo e($date); ?></div>
+        <div class="text-xs text-neutral-500 dark:text-zinc-100"><?php echo e($date); ?></div>
     </div>
     <?php else: ?>
     <div class="w-10 h-10 <?php echo e($color); ?> rounded flex items-center justify-center text-xl mr-3"><?php echo e($icon); ?></div>

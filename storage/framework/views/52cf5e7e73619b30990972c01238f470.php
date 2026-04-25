@@ -34,7 +34,7 @@ foreach ($attributes->all() as $__key => $__value) {
 
 unset($__defined_vars, $__key, $__value); ?>
 
-<div class="flex items-center justify-between py-3 bg-white dark:bg-zinc-900">
+<div class="flex items-center justify-between py-3">
     <div class="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300">
         <a href="#" class="hover:underline" cursor-pointer>My Drive</a>
     </div>
@@ -51,7 +51,7 @@ unset($__defined_vars, $__key, $__value); ?>
 
         <div class="flex rounded-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden">
             <button wire:click="setView('grid')"
-                class="cursor-pointer p-2 <?php echo e($view === 'grid' ? 'bg-neutral-100 dark:bg-zinc-800 text-blue-600' : ''); ?>">
+                class="cursor-pointer p-2 <?php echo e($view === 'grid' ? 'bg-neutral-100 dark:bg-zinc-800 text-blue-600 dark:text-blue-400' : ''); ?>">
                 <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M1 1h6v6H1zm8 0h6v6H9zM1 9h6v6H1zm8 0h6v6H9z" />
                 </svg>

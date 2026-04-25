@@ -4,6 +4,23 @@ CloudShelf is a modern cloud storage web application built with **Laravel** and 
 
 ---
 
+## 📸 Screenshot
+
+<p align="center">
+  <table border="0">
+    <tr>
+      <td>
+        <img src="Cloud-Shelf-White.png" alt="Light Mode" width="100%">
+      </td>
+      <td>
+        <img src="Cloud-Shelf-Dark.png" alt="Dark Mode" width="100%">
+      </td>
+    </tr>
+  </table>
+</p>
+
+---
+
 ## 🚀 Features
 
 - 📁 File & Folder Management (CRUD)

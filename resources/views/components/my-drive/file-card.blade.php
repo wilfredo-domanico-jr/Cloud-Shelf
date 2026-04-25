@@ -7,7 +7,7 @@
     <div class="h-28 {{ $color }} flex items-center justify-center text-4xl">{{ $icon }}</div>
     <div class="p-3">
         <div class="text-sm font-semibold truncate">{{ $title }}</div>
-        <div class="text-xs text-neutral-500">{{ $date }}</div>
+        <div class="text-xs text-neutral-500 dark:text-zinc-100">{{ $date }}</div>
     </div>
     @else
     <div class="w-10 h-10 {{ $color }} rounded flex items-center justify-center text-xl mr-3">{{ $icon }}</div>

@@ -568,7 +568,7 @@ unset($__split);
 <?php unset($__componentOriginal4a4f7aa062a095c651c2f80bb685a42a); ?>
 <?php endif; ?>
 
-        <?php if (isset($component)) { $__componentOriginalacac6a48a34186ea0abd369a00e5e2d4 = $component; } ?>
+        <!-- <?php if (isset($component)) { $__componentOriginalacac6a48a34186ea0abd369a00e5e2d4 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalacac6a48a34186ea0abd369a00e5e2d4 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'e60dd9d2c3a62d619c9acb38f20d5aa5::navlist.index','data' => ['variant' => 'outline']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('flux::navlist'); ?>
@@ -636,7 +636,7 @@ unset($__split);
 <?php if (isset($__componentOriginalacac6a48a34186ea0abd369a00e5e2d4)): ?>
 <?php $component = $__componentOriginalacac6a48a34186ea0abd369a00e5e2d4; ?>
 <?php unset($__componentOriginalacac6a48a34186ea0abd369a00e5e2d4); ?>
-<?php endif; ?>
+<?php endif; ?> -->
 
         <!-- Desktop User Menu -->
         <?php if (isset($component)) { $__componentOriginal2b4bb2cd4b8f1a3c08bae49ea918b888 = $component; } ?>
